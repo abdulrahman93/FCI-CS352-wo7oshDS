@@ -11,11 +11,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
 <title>Insert title here</title>
 </head>
-<form action="/social/login" method="لGET">
+
+<form action="/social/login" method="GET">
 <input type="submit" value="Signout">
 </form>
+
 <body>
-<%String uname= request.getParameter("${it.name}");%>
+<%String uname= "";%>
+
 <p> Welcome b2a ya ${it.name} </p>
 <p> This is should be user home page </p>
 <p> Current implemented services "http://fci-swe-apps.appspot.com/rest/RegistrationService --- {requires: uname, email, password}" </p>
@@ -26,9 +29,18 @@
 
 <% DatastoreService d = DatastoreServiceFactory.getDatastoreService(); 
 	Query gaeQuery = new Query("users");
+	Query gaeQuery1 = new Query("requests");
+	
 	PreparedQuery pq = d.prepare(gaeQuery);
+	PreparedQuery pq1 = d.prepare(gaeQuery1);
+	
 	for (Entity entity : pq.asIterable()) {
-		%>
+		int f=0;
+		for (Entity e2: pq1.asIterable()){
+			if(entity.getProperty("name").toString().equals(e2.getProperty("toUser").toString()))
+				f=1;
+			}
+		if(f == 0){%>
 		<table style="width:30%">
 		<tr>
 			<td><%=entity.getProperty("name") %></td>
@@ -39,31 +51,26 @@
 				
 			    </form></td>
 		
-		<%} %>
+		<%}
+	} %>
 		</tr>
 		
 		<tr><td><b>People wants to add you</b></td></tr>
-		<tr>
 			
 			<% DatastoreService d2 = DatastoreServiceFactory.getDatastoreService(); 
 			Query gaeQuery2 = new Query("requests");
 			PreparedQuery pq2 = d2.prepare(gaeQuery2);
 			for (Entity entity : pq2.asIterable()) {
-				//if(entity.getProperty("toUser").toString().equals("${it.name}"))
-				{
 				%>
 				<tr>
-					<td><%=entity.getProperty("fromUser") %> wants to add you</td>
-					<td></td>
-					<td><form action="" method="post">
-						<input type="text" value="<%=uname%>"/>
-						<input type="hidden" name="toUser"  value="<%=entity.getProperty("name")%>"/>
-						<input type="hidden" name="fromUser" value= "${it.name}"/>
+					<td><%=entity.getProperty("fromUser")%> wants to add you</td>
+					<td><form action="/social/home/friends" method="post">
+						<input type="hidden" name="toUser"  value="<%=entity.getProperty("toUser")%>"/>
+						<input type="hidden" name="fromUser" value= "<%=entity.getProperty("fromUser")%>"/>
 						<input type="submit" value="Accept Request">
 						
 					    </form></td>
-				<%}
-				} %>
+			<%}%>
 		</tr>
 		</table>
 </body>

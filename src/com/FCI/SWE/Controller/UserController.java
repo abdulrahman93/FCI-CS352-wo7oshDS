@@ -214,10 +214,11 @@ public class UserController {
 		return null;
 
 	}
+	
 	/**
-	 * Action function to response to signup request, This function will act as
-	 * a controller part and it will calls RegistrationService to make
-	 * registration
+	 * Action function to response to add freind request, This function will act as
+	 * a controller part and it will calls FreindReqService to make
+	 * request
 	 * 
 	 * @param toUser
 	 *            provided requested user
@@ -273,7 +274,69 @@ public class UserController {
 			e.printStackTrace();
 		}
 		
-		return "Failed ya 7omar";
+		return "Failed";
+	}
+	
+	/**
+	 * Action function to response to accept freindship request, This function will act as
+	 * a controller part and it will calls FreindsService to make
+	 * acceptance
+	 * 
+	 * @param toUser
+	 *            provided requested user
+	 * @param fromUser
+	 *            provided requesting user
+	 * @return Status string
+	 */
+	@POST
+	@Path("/home/friends")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String friends(@FormParam("toUser") String toUser,
+			@FormParam("fromUser") String fromUser) {
+		String serviceUrl = "http://localhost:8888/rest/FreindsService";
+		try {
+			URL url = new URL(serviceUrl);
+			String urlParameters = "toUser=" + toUser + "&fromUser=" + fromUser;
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
+			connection.setDoOutput(true);
+			connection.setDoInput(true);
+			connection.setInstanceFollowRedirects(false);
+			connection.setRequestMethod("POST");
+			connection.setConnectTimeout(60000);  //60 Seconds
+			connection.setReadTimeout(60000);  //60 Seconds
+			connection.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded;charset=UTF-8");
+			OutputStreamWriter writer = new OutputStreamWriter(
+					connection.getOutputStream());
+			writer.write(urlParameters);
+			writer.flush();
+			String line, retJson = "";
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					connection.getInputStream()));
+
+			while ((line = reader.readLine()) != null) {
+				retJson += line;
+			}
+			writer.close();
+			reader.close();
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(retJson);
+			JSONObject object = (JSONObject) obj;
+			if (object.get("Status").equals("OK"))
+				return "You and  "+fromUser+"  are now friends";
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "Failed";
 	}
 
 

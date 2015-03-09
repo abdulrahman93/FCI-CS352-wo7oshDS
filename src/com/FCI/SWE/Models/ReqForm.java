@@ -135,4 +135,40 @@ public class ReqForm {
 		return true;
 
 	}
+	
+	/**
+	 * 
+	 * This static method will change status of request to freinds
+	 * This method will serach for request in datastore
+	 * 
+	 * 
+	 * @return boolean in case change is correct
+	 */
+	
+	public Boolean update() {
+		DatastoreService datastore = DatastoreServiceFactory
+				.getDatastoreService();
+
+		Query gaeQuery = new Query("requests");
+		PreparedQuery pq = datastore.prepare(gaeQuery);
+		for (Entity entity : pq.asIterable()) {
+			System.out.println(entity.getProperty("toUser").toString());
+			if (entity.getProperty("toUser").toString().equals(toUser)
+					&& entity.getProperty("fromUser").toString().equals(fromUser)) {
+				datastore.delete(entity.getKey());
+				break;
+			}
+		}
+		
+		List<Entity> list = pq.asList(FetchOptions.Builder.withDefaults());
+
+		Entity req = new Entity("requests", list.size() + 1);
+
+		req.setProperty("toUser", this.toUser);
+		req.setProperty("fromUser", this.fromUser);
+		req.setProperty("status", "Friends");
+		datastore.put(req);
+
+		return true;
+	}
 }

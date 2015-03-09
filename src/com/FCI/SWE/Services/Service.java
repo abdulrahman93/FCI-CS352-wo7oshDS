@@ -104,7 +104,6 @@ public class Service {
 	 * request process, store request in data store.
 	 * @param toUser provided requested user
 	 * @param fromUser provided requesting user
-	 * @param stat provided status of friendship
 	 * @return request in json format
 	 */
 	@POST
@@ -122,6 +121,28 @@ public class Service {
 		object.put("fromUser", req.getFromUser());
 		object.put("stat", req.getStat());
 		*/
+		return object.toString();
+
+	}
+	
+	/**
+	 * Login Rest Service, this service will be called to make freind
+	 * request process, store request in data store.
+	 * @param toUser provided requested user
+	 * @param fromUser provided requesting user
+	 * @return request in json format
+	 */
+	@POST
+	@Path("/FreindsService")
+	public String FreindsService(@FormParam("toUser") String toUser,
+		@FormParam("fromUser") String fromUser) {
+		ReqForm req = ReqForm.getReq(toUser, fromUser);
+		
+		req.update();
+		
+		JSONObject object = new JSONObject();
+		object.put("Status", "OK");
+		
 		return object.toString();
 
 	}
