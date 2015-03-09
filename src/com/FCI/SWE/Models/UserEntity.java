@@ -114,6 +114,35 @@ public class UserEntity {
 
 		return null;
 	}
+	
+	/**
+	 * 
+	 * This static method will form UserEntity class using only email
+	 * This method will serach for user in datastore
+	 * 
+	 * @param email
+	 *            user email
+	 * @return Constructed user entity
+	 */
+	
+	public static UserEntity getUser2(String email) {
+		DatastoreService datastore = DatastoreServiceFactory
+				.getDatastoreService();
+
+		Query gaeQuery = new Query("users");
+		PreparedQuery pq = datastore.prepare(gaeQuery);
+		for (Entity entity : pq.asIterable()) {
+			System.out.println(entity.getProperty("email").toString());
+			if (entity.getProperty("email").toString().equals(email)) {
+				UserEntity returnedUser = new UserEntity(entity.getProperty(
+						"name").toString(), entity.getProperty("email")
+						.toString(), entity.getProperty("password").toString());
+				return returnedUser;
+			}
+		}
+
+		return null;
+	}
 
 	/**
 	 * This method will be used to save user object in datastore
@@ -137,4 +166,6 @@ public class UserEntity {
 		return true;
 
 	}
+	
+	
 }

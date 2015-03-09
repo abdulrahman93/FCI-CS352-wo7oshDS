@@ -1,0 +1,138 @@
+package com.FCI.SWE.Models;
+
+import java.util.Date;
+import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+
+/**
+ * <h1>Request Friend class</h1>
+ * <p>
+ * This class will save friend requests, it will holds request data
+ * </p>
+ *
+ * @author Mohamed Samir
+ * @version 1.0
+ * @since 2014-03-9
+ */
+public class ReqForm {
+	private String toUser;
+	private String fromUser;
+	private String status;
+	
+	/**
+	 * Constructor accepts user data
+	 * 
+	 * @param toUser
+	 *            user receives friend request
+	 * @param fromUser
+	 *            user sent friend request
+	 * @param status
+	 *            pending or became friends
+	 */
+	public ReqForm(String toUser, String fromUser, String status) {
+		this.toUser = toUser;
+		this.fromUser = fromUser;
+		this.status = status;
+
+	}
+
+	public String getToUser() {
+		return toUser;
+	}
+
+	public String getFromUser() {
+		return fromUser;
+	}
+
+	public String getStat() {
+		return status;
+	}
+	
+	/**
+	 * 
+	 * This static method will form ReqForm class using json format contains
+	 * request data
+	 * 
+	 * @param json
+	 *            String in json format contains user data
+	 * @return Constructed Request form
+	 */
+	public static ReqForm getReq(String json) {
+
+		JSONParser parser = new JSONParser();
+		try {
+			JSONObject object = (JSONObject) parser.parse(json);
+			return new ReqForm(object.get("toUser").toString(), object.get(
+					"fromUser").toString(), object.get("status").toString());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	
+	/**
+	 * 
+	 * This static method will get Request class using only email
+	 * This method will serach for request in datastore
+	 * 
+	 * @param email
+	 *            user email
+	 * @return Constructed user entity
+	 */
+	
+	public static ReqForm getReq(String toUser, String fromUser) {
+		DatastoreService datastore = DatastoreServiceFactory
+				.getDatastoreService();
+
+		Query gaeQuery = new Query("requests");
+		PreparedQuery pq = datastore.prepare(gaeQuery);
+		for (Entity entity : pq.asIterable()) {
+			System.out.println(entity.getProperty("toUser").toString());
+			if (entity.getProperty("toUser").toString().equals(toUser)
+					&& entity.getProperty("fromUser").toString().equals(fromUser)) {
+				ReqForm returnedReq = new ReqForm(entity.getProperty(
+						"toUser").toString(), entity.getProperty("fromUser")
+						.toString(), entity.getProperty("status").toString());
+				return returnedReq;
+			}
+		}
+
+		return null;
+	}
+	
+	/**
+	 * This method will be used to save request in datastore
+	 * 
+	 * @return boolean if request is saved correctly or not
+	 */
+	public Boolean saveReq() {
+		DatastoreService datastore = DatastoreServiceFactory
+				.getDatastoreService();
+		Query gaeQuery = new Query("requests");
+		PreparedQuery pq = datastore.prepare(gaeQuery);
+		List<Entity> list = pq.asList(FetchOptions.Builder.withDefaults());
+
+		Entity req = new Entity("requests", list.size() + 1);
+
+		req.setProperty("toUser", this.toUser);
+		req.setProperty("fromUser", this.fromUser);
+		req.setProperty("status", this.status);
+		datastore.put(req);
+
+		return true;
+
+	}
+}

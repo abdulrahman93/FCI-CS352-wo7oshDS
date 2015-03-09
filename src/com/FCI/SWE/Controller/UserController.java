@@ -214,6 +214,67 @@ public class UserController {
 		return null;
 
 	}
+	/**
+	 * Action function to response to signup request, This function will act as
+	 * a controller part and it will calls RegistrationService to make
+	 * registration
+	 * 
+	 * @param toUser
+	 *            provided requested user
+	 * @param fromUser
+	 *            provided requesting user
+	 * @return Status string
+	 */
+	@POST
+	@Path("/home/pending/")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String pending(@FormParam("toUser") String toUser,
+			@FormParam("fromUser") String fromUser) {
+		String serviceUrl = "http://localhost:8888/rest/FreindReqService";
+		try {
+			URL url = new URL(serviceUrl);
+			String urlParameters = "toUser=" + toUser + "&fromUser=" + fromUser;
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
+			connection.setDoOutput(true);
+			connection.setDoInput(true);
+			connection.setInstanceFollowRedirects(false);
+			connection.setRequestMethod("POST");
+			connection.setConnectTimeout(60000);  //60 Seconds
+			connection.setReadTimeout(60000);  //60 Seconds
+			connection.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded;charset=UTF-8");
+			OutputStreamWriter writer = new OutputStreamWriter(
+					connection.getOutputStream());
+			writer.write(urlParameters);
+			writer.flush();
+			String line, retJson = "";
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					connection.getInputStream()));
+
+			while ((line = reader.readLine()) != null) {
+				retJson += line;
+			}
+			writer.close();
+			reader.close();
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(retJson);
+			JSONObject object = (JSONObject) obj;
+			if (object.get("Status").equals("OK"))
+				return "Friend Request sent";
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "Failed ya 7omar";
+	}
 
 
 }
