@@ -1,3 +1,4 @@
+<%@page import="com.FCI.SWE.Models.UserEntity"%>
 <%@page import="com.google.appengine.api.datastore.DatastoreService"%>
 <%@ page language="java" contentType="text/html; charset=windows-1256"
     pageEncoding="windows-1256"%>
@@ -17,7 +18,7 @@
 </form>
 
 <body>
-<%String uname= "";%>
+<%String userName= UserEntity.getCurrentActiveUser().getName();%>
 
 <p> Welcome b2a ya ${it.name} </p>
 <p> This is should be user home page </p>

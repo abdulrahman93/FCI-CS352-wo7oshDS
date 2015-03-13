@@ -7,6 +7,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.google.api.server.spi.auth.common.User;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -29,6 +30,8 @@ public class UserEntity {
 	private String name;
 	private String email;
 	private String password;
+	
+	private static UserEntity currentActiveUser;
 
 	/**
 	 * Constructor accepts user data
@@ -58,7 +61,11 @@ public class UserEntity {
 	public String getPass() {
 		return password;
 	}
-
+	
+	public static UserEntity getCurrentActiveUser(){
+		return currentActiveUser;
+	}
+	
 	/**
 	 * 
 	 * This static method will form UserEntity class using json format contains
