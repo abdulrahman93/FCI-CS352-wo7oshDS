@@ -22,7 +22,7 @@ import com.google.appengine.api.datastore.Query;
  * This class will act as a model for user, it will holds user data
  * </p>
  *
- * @author Mohamed Samir
+ * @author Wo7oshDS
  * @version 1.0
  * @since 2014-02-12
  */
@@ -60,10 +60,6 @@ public class UserEntity {
 
 	public String getPass() {
 		return password;
-	}
-	
-	public static UserEntity getCurrentActiveUser(){
-		return currentActiveUser;
 	}
 	
 	/**

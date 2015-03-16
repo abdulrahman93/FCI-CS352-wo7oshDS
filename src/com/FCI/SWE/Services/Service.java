@@ -32,7 +32,7 @@ import com.FCI.SWE.Models.UserEntity;
  * This class contains REST services, also contains action function for web
  * application
  * 
- * @author Mohamed Samir
+ * @author Wo7oshDS
  * @version 1.0
  * @since 2014-02-12
  *

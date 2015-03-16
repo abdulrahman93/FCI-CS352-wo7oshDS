@@ -21,7 +21,7 @@ import com.google.appengine.api.datastore.Query;
  * This class will save friend requests, it will holds request data
  * </p>
  *
- * @author Mohamed Samir
+ * @author Wo7oshDS
  * @version 1.0
  * @since 2014-03-9
  */

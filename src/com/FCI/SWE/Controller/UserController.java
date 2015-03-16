@@ -31,7 +31,7 @@ import com.FCI.SWE.Models.UserEntity;
  * This class contains REST services, also contains action function for web
  * application
  * 
- * @author Mohamed Samir
+ * @author Wo7oshDS
  * @version 1.0
  * @since 2014-02-12
  *
@@ -93,7 +93,7 @@ public class UserController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String response(@FormParam("uname") String uname,
 			@FormParam("email") String email, @FormParam("password") String pass) {
-		String serviceUrl = "http://localhost:8888/rest/RegistrationService";
+		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/RegistrationService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&email=" + email
@@ -159,7 +159,7 @@ public class UserController {
 	@Produces("text/html")
 	public Response home(@FormParam("uname") String uname,
 			@FormParam("password") String pass) {
-		String serviceUrl = "http://localhost:8888/rest/LoginService";
+		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/LoginService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&password=" + pass;
@@ -231,7 +231,8 @@ public class UserController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String pending(@FormParam("toUser") String toUser,
 			@FormParam("fromUser") String fromUser) {
-		String serviceUrl = "http://localhost:8888/rest/FreindReqService";
+		//String serviceUrl = "http://localhost:8888/rest/FreindReqService";
+		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/FreindReqService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "toUser=" + toUser + "&fromUser=" + fromUser;
@@ -293,7 +294,7 @@ public class UserController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String friends(@FormParam("toUser") String toUser,
 			@FormParam("fromUser") String fromUser) {
-		String serviceUrl = "http://localhost:8888/rest/FreindsService";
+		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/FreindsService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "toUser=" + toUser + "&fromUser=" + fromUser;

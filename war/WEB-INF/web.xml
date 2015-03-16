@@ -47,4 +47,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	    
 	    
 	</servlet-mapping>
+	
+	<welcome-file-list>
+	<welcome-file>Controllers</welcome-file>
+	</welcome-file-list>
 </web-app>

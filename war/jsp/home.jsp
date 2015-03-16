@@ -1,4 +1,3 @@
-<%@page import="com.FCI.SWE.Models.UserEntity"%>
 <%@page import="com.google.appengine.api.datastore.DatastoreService"%>
 <%@ page language="java" contentType="text/html; charset=windows-1256"
     pageEncoding="windows-1256"%>
@@ -11,14 +10,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/css/styles.css" />
 </head>
+
 
 <form action="/social/login" method="GET">
 <input type="submit" value="Signout">
 </form>
 
-<body>
-<%String userName= UserEntity.getCurrentActiveUser().getName();%>
+<body bgcolor="#9966FF">
+
+<%//String userName= UserEntity.getCurrentActiveUser().getName();%>
 
 <p> Welcome b2a ya ${it.name} </p>
 <p> This is should be user home page </p>
@@ -62,6 +64,7 @@
 			Query gaeQuery2 = new Query("requests");
 			PreparedQuery pq2 = d2.prepare(gaeQuery2);
 			for (Entity entity : pq2.asIterable()) {
+				if(entity.getProperty("status").toString() == "pending"){
 				%>
 				<tr>
 					<td><%=entity.getProperty("fromUser")%> wants to add you</td>
@@ -71,7 +74,8 @@
 						<input type="submit" value="Accept Request">
 						
 					    </form></td>
-			<%}%>
+			<%}
+			}%>
 		</tr>
 		</table>
 </body>

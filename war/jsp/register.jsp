@@ -7,7 +7,7 @@
 <head>
   <title>Welcome!</title>
 </head>
-<body>
+<body bgcolor="#9966FF">
   <form action="/social/response" method="post">
   Name : <input type="text" name="uname" /> <br>
   Email : <input type="text" name="email" /> <br>
