@@ -55,7 +55,7 @@ public class UserController {
 	 * Action function to render home page of application, home page contains
 	 * only signup and login buttons
 	 * 
-	 * @return enty point page (Home page of this application)
+	 * @return entry point page (Home page of this application)
 	 */
 	@GET
 	@Path("/")
@@ -74,7 +74,19 @@ public class UserController {
 	public Response login() {
 		return Response.ok(new Viewable("/jsp/login")).build();
 	}
-
+	
+	/**
+	 * Action function to response to link to send individual message
+	 * controller part, it will calls send message service
+	 *
+	 
+	@GET
+	@Path("/home/message")
+	public Response imessage() {
+		return Response.ok(new Viewable("/jsp/message")).build();
+	}
+	*/
+	
 	/**
 	 * Action function to response to signup request, This function will act as
 	 * a controller part and it will calls RegistrationService to make
@@ -93,7 +105,8 @@ public class UserController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String response(@FormParam("uname") String uname,
 			@FormParam("email") String email, @FormParam("password") String pass) {
-		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/RegistrationService";
+		//String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/RegistrationService";
+		String serviceUrl = "http://localhost:8888/rest/RegistrationService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&email=" + email
@@ -159,7 +172,8 @@ public class UserController {
 	@Produces("text/html")
 	public Response home(@FormParam("uname") String uname,
 			@FormParam("password") String pass) {
-		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/LoginService";
+		//String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/LoginService";
+		String serviceUrl = "http://localhost:8888/rest/LoginService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&password=" + pass;
@@ -231,8 +245,8 @@ public class UserController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String pending(@FormParam("toUser") String toUser,
 			@FormParam("fromUser") String fromUser) {
-		//String serviceUrl = "http://localhost:8888/rest/FreindReqService";
-		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/FreindReqService";
+		String serviceUrl = "http://localhost:8888/rest/FreindReqService";
+		//String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/FreindReqService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "toUser=" + toUser + "&fromUser=" + fromUser;
@@ -294,7 +308,8 @@ public class UserController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String friends(@FormParam("toUser") String toUser,
 			@FormParam("fromUser") String fromUser) {
-		String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/FreindsService";
+		//String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/FreindsService";
+		String serviceUrl = "http://localhost:8888/rest/FreindsService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "toUser=" + toUser + "&fromUser=" + fromUser;
@@ -339,6 +354,142 @@ public class UserController {
 		
 		return "Failed";
 	}
+	/**
+	 * Action function to response to login request. This function will act as a
+	 * controller part, it will calls login service to check user data and get
+	 * user from datastore
+	 *
+	 * @param uname
+	 *            provided user name
+	 * @param email
+	 *            provided user email
+	 * @return Individual message page view
+	 */
+	@POST
+	@Path("/home/message/")
+	@Produces("text/html")
+	public Response message(@FormParam("email") String email) {
+				//String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/senderService";
+				String serviceUrl = "http://localhost:8888/rest/senderService";
+				try {
+					System.out.println("hello message post fun "+email);
+					URL url = new URL(serviceUrl);
+					String urlParameters = "email=" + email;
+					HttpURLConnection connection = (HttpURLConnection) url
+							.openConnection();
+					connection.setDoOutput(true);
+					connection.setDoInput(true);
+					connection.setInstanceFollowRedirects(false);
+					connection.setRequestMethod("POST");
+					connection.setConnectTimeout(60000);  //60 Seconds
+					connection.setReadTimeout(60000);  //60 Seconds
+					
+					connection.setRequestProperty("Content-Type",
+							"application/x-www-form-urlencoded;charset=UTF-8");
+					OutputStreamWriter writer = new OutputStreamWriter(
+							connection.getOutputStream());
+					writer.write(urlParameters);
+					writer.flush();
+					String line, retJson = "";
+					BufferedReader reader = new BufferedReader(new InputStreamReader(
+							connection.getInputStream()));
+
+					while ((line = reader.readLine()) != null) {
+						retJson += line;
+					}
+					writer.close();
+					reader.close();
+					JSONParser parser = new JSONParser();
+					Object obj = parser.parse(retJson);
+					JSONObject object = (JSONObject) obj;
+					
+					if (object.get("Status").equals("Failed"))
+						return null;
+					
+					Map<String, String> map = new HashMap<String, String>();
+					UserEntity user = UserEntity.getUser(object.toJSONString());
+					map.put("name", user.getName());
+					map.put("email", user.getEmail());
+					return Response.ok(new Viewable("/jsp/message", map)).build();
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				return null;
+	}
+	
+	/**
+	 * Action function to send individual message, This function will act as
+	 * a controller part and it will calls SendIMessage to send
+	 * message
+	 * 
+	 * @param toUser
+	 *            provided requested user
+	 * @param fromUser
+	 *            provided requesting user
+	 * @return Status string
+	 */
+	@POST
+	@Path("/home/message/isent")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String isent(@FormParam("toUser") String toUser,
+			@FormParam("fromUser") String fromUser, @FormParam("content") String content) {
+		//String serviceUrl = "http://1-dot-swe2-social.appspot.com/rest/SendIMessage";
+		String serviceUrl = "http://localhost:8888/rest/SendIMessage";
+		System.out.println("here imessage: "+fromUser);
+		try {
+			URL url = new URL(serviceUrl);
+			String urlParameters = "toUser=" + toUser + "&fromUser=" + fromUser
+									+ "&content=" + content;
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
+			connection.setDoOutput(true);
+			connection.setDoInput(true);
+			connection.setInstanceFollowRedirects(false);
+			connection.setRequestMethod("POST");
+			connection.setConnectTimeout(60000);  //60 Seconds
+			connection.setReadTimeout(60000);  //60 Seconds
+			connection.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded;charset=UTF-8");
+			OutputStreamWriter writer = new OutputStreamWriter(
+					connection.getOutputStream());
+			writer.write(urlParameters);
+			writer.flush();
+			String line, retJson = "";
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					connection.getInputStream()));
+
+			while ((line = reader.readLine()) != null) {
+				retJson += line;
+			}
+			writer.close();
+			reader.close();
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(retJson);
+			JSONObject object = (JSONObject) obj;
+			if (object.get("Status").equals("OK"))
+				return "Your message has been sent";
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "Failed";
+	}
+	
 
 
 }

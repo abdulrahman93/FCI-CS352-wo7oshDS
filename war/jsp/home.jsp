@@ -1,3 +1,4 @@
+<%@page import="com.FCI.SWE.Models.UserEntity"%>
 <%@page import="com.google.appengine.api.datastore.DatastoreService"%>
 <%@ page language="java" contentType="text/html; charset=windows-1256"
     pageEncoding="windows-1256"%>
@@ -10,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="/styles.css" />
 </head>
 
 
@@ -20,13 +21,12 @@
 
 <body bgcolor="#9966FF">
 
-<%//String userName= UserEntity.getCurrentActiveUser().getName();%>
+<%//String userName= UserEntity.getCurrentActiveUser().getName().toString();%>
 
 <p> Welcome b2a ya ${it.name} </p>
 <p> This is should be user home page </p>
 <p> Current implemented services "http://fci-swe-apps.appspot.com/rest/RegistrationService --- {requires: uname, email, password}" </p>
 <p> and "http://fci-swe-apps.appspot.com/rest/LoginService --- {requires: uname,  password}" </p>
-<p> you should implement sendFriendRequest service and addFriend service
 
 <p>People you may know</p>
 
@@ -44,7 +44,7 @@
 				f=1;
 			}
 		if(f == 0){%>
-		<table style="width:30%">
+		<table>
 		<tr>
 			<td><%=entity.getProperty("name") %></td>
 			<td><form action="/social/home/pending" method="post">
@@ -64,10 +64,10 @@
 			Query gaeQuery2 = new Query("requests");
 			PreparedQuery pq2 = d2.prepare(gaeQuery2);
 			for (Entity entity : pq2.asIterable()) {
-				if(entity.getProperty("status").toString() == "pending"){
+				if(entity.getProperty("status").toString().equals("pending")){
 				%>
 				<tr>
-					<td><%=entity.getProperty("fromUser")%> wants to add you</td>
+					<td><p><%=entity.getProperty("fromUser")%></p> wants to add you</td>
 					<td><form action="/social/home/friends" method="post">
 						<input type="hidden" name="toUser"  value="<%=entity.getProperty("toUser")%>"/>
 						<input type="hidden" name="fromUser" value= "<%=entity.getProperty("fromUser")%>"/>
@@ -77,6 +77,15 @@
 			<%}
 			}%>
 		</tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<!--  -->
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td>
+		<form action="/social/home/message/" method="post">
+		<input type="hidden" name="email" value= "${it.email}"/>
+		<input type="submit" value="Send message">
+		</form>
+		</td></tr>
 		</table>
 </body>
 </html>

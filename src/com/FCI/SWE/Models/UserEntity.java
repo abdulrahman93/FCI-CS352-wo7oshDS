@@ -27,12 +27,13 @@ import com.google.appengine.api.datastore.Query;
  * @since 2014-02-12
  */
 public class UserEntity {
+	private long id;
 	private String name;
 	private String email;
 	private String password;
 	
 	private static UserEntity currentActiveUser;
-
+	
 	/**
 	 * Constructor accepts user data
 	 * 
@@ -49,6 +50,14 @@ public class UserEntity {
 		this.password = password;
 
 	}
+	
+	private void setId(long id){
+		this.id = id;
+	}
+	
+	public long getId(){
+		return id;
+	}
 
 	public String getName() {
 		return name;
@@ -62,6 +71,9 @@ public class UserEntity {
 		return password;
 	}
 	
+	public static UserEntity getCurrentActiveUser(){
+		return currentActiveUser;
+	}
 	/**
 	 * 
 	 * This static method will form UserEntity class using json format contains
@@ -76,8 +88,10 @@ public class UserEntity {
 		JSONParser parser = new JSONParser();
 		try {
 			JSONObject object = (JSONObject) parser.parse(json);
+			
 			return new UserEntity(object.get("name").toString(), object.get(
 					"email").toString(), object.get("password").toString());
+			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -135,7 +149,7 @@ public class UserEntity {
 		Query gaeQuery = new Query("users");
 		PreparedQuery pq = datastore.prepare(gaeQuery);
 		for (Entity entity : pq.asIterable()) {
-			System.out.println(entity.getProperty("email").toString());
+			//System.out.println(entity.getProperty("email").toString());
 			if (entity.getProperty("email").toString().equals(email)) {
 				UserEntity returnedUser = new UserEntity(entity.getProperty(
 						"name").toString(), entity.getProperty("email")

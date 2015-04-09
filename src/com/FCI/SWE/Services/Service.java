@@ -26,6 +26,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.FCI.SWE.Models.ReqForm;
+import com.FCI.SWE.Models.SingleMessage;
 import com.FCI.SWE.Models.UserEntity;
 
 /**
@@ -143,6 +144,56 @@ public class Service {
 		JSONObject object = new JSONObject();
 		object.put("Status", "OK");
 		
+		return object.toString();
+
+	}
+	
+	/**
+	 * Login Rest Service, this service will be called to make freind
+	 * request process, store request in data store.
+	 * @param toUser provided requested user
+	 * @param fromUser provided requesting user
+	 * @return request in json format
+	 */
+	@POST
+	@Path("/SendIMessage")
+	public String SendIMessage(@FormParam("toUser") String toUser,
+		@FormParam("fromUser") String fromUser, @FormParam("content") String content) {
+		System.out.println("hlooo: "+fromUser);
+		SingleMessage sm = new SingleMessage(toUser, fromUser, content);
+		
+		sm.saveSingleMessage();
+		
+		JSONObject object = new JSONObject();
+		object.put("Status", "OK");
+		
+		return object.toString();
+
+	}
+	
+	/**
+	 * Login Rest Service, this service will be called to make freind
+	 * request process, store request in data store.
+	 * @param toUser provided requested user
+	 * @param fromUser provided requesting user
+	 * @return request in json format
+	 */
+	@POST
+	@Path("/senderService")
+	public String senderService(@FormParam("email") String email) {
+		System.out.println("hereSender: "+email);
+		JSONObject object = new JSONObject();
+		UserEntity user = UserEntity.getUser2(email);
+		if (user == null) {
+			object.put("Status", "Failed");
+
+		} else {
+			object.put("Status", "OK");
+			object.put("name", user.getName());
+			object.put("email", user.getEmail());
+			object.put("password", user.getPass());
+		}
+
 		return object.toString();
 
 	}
