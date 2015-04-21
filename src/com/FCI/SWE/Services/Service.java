@@ -25,6 +25,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.FCI.SWE.Models.Post;
 import com.FCI.SWE.Models.ReqForm;
 import com.FCI.SWE.Models.SingleMessage;
 import com.FCI.SWE.Models.UserEntity;
@@ -194,6 +195,33 @@ public class Service {
 			object.put("password", user.getPass());
 		}
 
+		return object.toString();
+
+	}
+	
+	/**
+	 * Login Rest Service, this service will be called to make freind
+	 * request process, store request in data store.
+	 * @param toUser provided requested user
+	 * @param fromUser provided requesting user
+	 * @return request in json format
+	 */
+	@POST
+	@Path("/postCreated")
+	public String postCreated(@FormParam("owner") String owner,
+		@FormParam("content") String content, @FormParam("status") String status,
+		@FormParam("privacy") String privacy) {
+		Post p = new Post(owner, content, status, privacy);
+		
+		p.savePost();
+		
+		JSONObject object = new JSONObject();
+		object.put("Status", "OK");
+		/*
+		object.put("toUser", req.getToUser());
+		object.put("fromUser", req.getFromUser());
+		object.put("stat", req.getStat());
+		*/
 		return object.toString();
 
 	}

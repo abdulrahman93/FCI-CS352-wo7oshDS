@@ -10,19 +10,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/styles.css" />
+<title>Home Page</title>
+<style>
+
+body {
+    background-color: #d0e4fe;
+}
+
+p {
+    font-family: "sans-serif";
+    font-size: larger;
+}
+</style>
+
+<!-- 
+<link rel="stylesheet" type="text/css" href="/SocialNetwork/styles.css" />
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="/war/styles.css" />
+<link rel="stylesheet" type="text/css" href="/war/jsp/styles.css" />
+-->
+
 </head>
 
 
-<form action="/social/login" method="GET">
+<form action="/social/login" method="GET" style="text-align: right;">
 <input type="submit" value="Signout">
 </form>
 
 <body bgcolor="#9966FF">
 
 <%//String userName= UserEntity.getCurrentActiveUser().getName().toString();%>
-
+<!--  <h1>The Social Network</h1> -->
 <p> Welcome b2a ya ${it.name} </p>
 <p> This is should be user home page </p>
 <p> Current implemented services "http://fci-swe-apps.appspot.com/rest/RegistrationService --- {requires: uname, email, password}" </p>
@@ -83,7 +101,36 @@
 		<tr><td>
 		<form action="/social/home/message/" method="post">
 		<input type="hidden" name="email" value= "${it.email}"/>
-		<input type="submit" value="Send message">
+		<input type="submit" value="Send single message">
+		</form>
+		</td></tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td>
+		<form action="/social/home/gmessage/" method="post">
+		<input type="hidden" name="email" value= "${it.email}"/>
+		<input type="submit" value="Send Group message">
+		</form>
+		</td></tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td>
+		<a href="/social/home/notifications">Notifications</a>
+		</td></tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td><p>Phase-2 b</p></td></tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td>
+		<form action="/social/home/makePost/" method="post">
+		<input type="hidden" name="email" value= "${it.email}"/>
+		<input type="submit" value="Create post">
+		</form>
+		</td></tr>
+		<tr><td>--------------------------------------------------------------------</td></tr>
+		<tr><td>
+		<form action="/social/home/timeline/" method="post">
+		<input type="hidden" name="email" value= "${it.email}"/>
+		<input type="submit" value="Timeline">
 		</form>
 		</td></tr>
 		</table>

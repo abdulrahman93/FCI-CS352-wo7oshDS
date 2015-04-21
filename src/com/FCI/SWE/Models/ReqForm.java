@@ -1,5 +1,6 @@
 package com.FCI.SWE.Models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -171,4 +172,39 @@ public class ReqForm {
 
 		return true;
 	}
+	
+	/**
+	 * 
+	 * This static method will get Request class using only email
+	 * This method will serach for request in datastore
+	 * 
+	 * @param email
+	 *            user email
+	 * @return Constructed user entity
+	 */
+	
+	public static ArrayList<String> getFriends(UserEntity user) {
+		DatastoreService datastore = DatastoreServiceFactory
+				.getDatastoreService();
+		
+		ArrayList<String> rf = new ArrayList<String>();
+		Query gaeQuery = new Query("requests");
+		PreparedQuery pq = datastore.prepare(gaeQuery);
+		for (Entity entity : pq.asIterable()) {
+			//System.out.println(entity.getProperty("toUser").toString());
+			if ((entity.getProperty("toUser").toString().equals(user.getName())
+					&& entity.getProperty("status").toString().equals("Friends"))) {
+				rf.add(entity.getProperty("fromUser").toString());
+			}
+			else if(entity.getProperty("fromUser").toString().equals(user.getName())){
+				rf.add(entity.getProperty("toUser").toString());
+			}
+		}
+		
+		if(rf.size() > 0)
+			return rf;
+		
+		return null;
+	}
+	
 }
