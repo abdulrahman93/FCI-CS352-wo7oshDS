@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="11" passed="11">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestDependency" duration-ms="662" started-at="2015-05-10T22:21:30Z" finished-at="2015-05-10T22:21:30Z">
+    <groups>
+      <group name="Entity">
+        <method signature="NewTest.f2()[pri:0, instance:Test.NewTest@1ea49c14]" name="f2" class="Test.NewTest"/>
+        <method signature="NewTest.testPost()[pri:0, instance:Test.NewTest@1ea49c14]" name="testPost" class="Test.NewTest"/>
+        <method signature="NewTest.testSingleMessage()[pri:0, instance:Test.NewTest@1ea49c14]" name="testSingleMessage" class="Test.NewTest"/>
+        <method signature="NewTest.testUserEntity(java.lang.Boolean, com.FCI.SWE.Models.UserEntity)[pri:0, instance:Test.NewTest@1ea49c14]" name="testUserEntity" class="Test.NewTest"/>
+        <method signature="NewTest.testReq()[pri:0, instance:Test.NewTest@1ea49c14]" name="testReq" class="Test.NewTest"/>
+      </group> <!-- Entity -->
+    </groups>
+    <test name="Test1" duration-ms="662" started-at="2015-05-10T22:21:30Z" finished-at="2015-05-10T22:21:30Z">
+      <class name="Test.NewTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:Test.NewTest@1ea49c14]" name="setUp" is-config="true" duration-ms="43" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="f2()[pri:0, instance:Test.NewTest@1ea49c14]" name="f2" duration-ms="529" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f2 -->
+        <test-method status="PASS" signature="testPost()[pri:0, instance:Test.NewTest@1ea49c14]" name="testPost" duration-ms="5" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPost -->
+        <test-method status="PASS" signature="testSingleMessage()[pri:0, instance:Test.NewTest@1ea49c14]" name="testSingleMessage" duration-ms="5" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSingleMessage -->
+        <test-method status="PASS" signature="testUserEntity(java.lang.Boolean, com.FCI.SWE.Models.UserEntity)[pri:0, instance:Test.NewTest@1ea49c14]" name="testUserEntity" duration-ms="6" started-at="2015-05-11T00:21:30Z" data-provider="testUser1" finished-at="2015-05-11T00:21:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[com.FCI.SWE.Models.UserEntity@908d17e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUserEntity -->
+        <test-method status="PASS" signature="testUserEntity(java.lang.Boolean, com.FCI.SWE.Models.UserEntity)[pri:0, instance:Test.NewTest@1ea49c14]" name="testUserEntity" duration-ms="4" started-at="2015-05-11T00:21:30Z" data-provider="testUser1" finished-at="2015-05-11T00:21:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[com.FCI.SWE.Models.UserEntity@5e77b0bd]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUserEntity -->
+        <test-method status="PASS" signature="testUserEntity(java.lang.Boolean, com.FCI.SWE.Models.UserEntity)[pri:0, instance:Test.NewTest@1ea49c14]" name="testUserEntity" duration-ms="5" started-at="2015-05-11T00:21:30Z" data-provider="testUser1" finished-at="2015-05-11T00:21:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[com.FCI.SWE.Models.UserEntity@71c7625c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUserEntity -->
+        <test-method status="PASS" signature="testReq()[pri:0, instance:Test.NewTest@1ea49c14]" name="testReq" duration-ms="6" started-at="2015-05-11T00:21:30Z" depends-on-methods="Test.NewTest.testUserEntity" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReq -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Test.NewTest@1ea49c14]" name="tearDown" is-config="true" duration-ms="1" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Test.NewTest -->
+      <class name="Test.TestService">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:Test.TestService@24c6af24]" name="setUp" is-config="true" duration-ms="9" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testLogin(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@24c6af24]" name="testLogin" duration-ms="1" depends-on-groups="Entity" started-at="2015-05-11T00:21:30Z" data-provider="testLogin" finished-at="2015-05-11T00:21:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{"Status":"Failed"}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[{"Status":"Failed"}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method status="PASS" signature="testPost()[pri:0, instance:Test.TestService@24c6af24]" name="testPost" duration-ms="4" depends-on-groups="Entity" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPost -->
+        <test-method status="PASS" signature="testRegistration(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@24c6af24]" name="testRegistration" duration-ms="1" depends-on-groups="Entity" started-at="2015-05-11T00:21:30Z" data-provider="testReg" finished-at="2015-05-11T00:21:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{"Status":"OK"}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[{"Status":"OK"}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegistration -->
+        <test-method status="PASS" signature="testRegistration(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@24c6af24]" name="testRegistration" duration-ms="1" depends-on-groups="Entity" started-at="2015-05-11T00:21:30Z" data-provider="testReg" finished-at="2015-05-11T00:21:30Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegistration -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Test.TestService@24c6af24]" name="tearDown" is-config="true" duration-ms="1" started-at="2015-05-11T00:21:30Z" finished-at="2015-05-11T00:21:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Test.TestService -->
+    </test> <!-- Test1 -->
+  </suite> <!-- TestDependency -->
+</testng-results>

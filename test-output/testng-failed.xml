@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestDependency]">
+  <test name="Test1(failed)">
+    <classes>
+      <class name="Test.NewTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="testPost"/>
+          <include name="testReq"/>
+          <include name="testUserEntity"/>
+          <include name="tearDown"/>
+          <include name="f2"/>
+          <include name="testSingleMessage"/>
+        </methods>
+      </class> <!-- Test.NewTest -->
+      <class name="Test.TestService">
+        <methods>
+          <include name="setUp"/>
+          <include name="testPost"/>
+          <include name="tearDown"/>
+          <include name="testLogin"/>
+          <include name="testRegistration"/>
+        </methods>
+      </class> <!-- Test.TestService -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [TestDependency] -->

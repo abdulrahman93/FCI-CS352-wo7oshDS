@@ -174,13 +174,17 @@ public class UserEntity {
 		List<Entity> list = pq.asList(FetchOptions.Builder.withDefaults());
 
 		Entity employee = new Entity("users", list.size() + 1);
-
+		
+		if(!this.name.isEmpty() && !this.email.isEmpty() && !this.password.isEmpty()){
 		employee.setProperty("name", this.name);
 		employee.setProperty("email", this.email);
 		employee.setProperty("password", this.password);
 		datastore.put(employee);
 
 		return true;
+		}
+		
+		return false;
 
 	}
 	

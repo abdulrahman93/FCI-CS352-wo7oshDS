@@ -68,10 +68,15 @@ public class Service {
 	public String registrationService(@FormParam("uname") String uname,
 			@FormParam("email") String email, @FormParam("password") String pass) {
 		UserEntity user = new UserEntity(uname, email, pass);
-		user.saveUser();
-		JSONObject object = new JSONObject();
-		object.put("Status", "OK");
-		return object.toString();
+		Boolean b = user.saveUser();
+		if(b){
+			JSONObject object = new JSONObject();
+			object.put("Status", "OK");
+			return object.toString();
+		}
+		
+		return null;
+		
 	}
 
 	/**
