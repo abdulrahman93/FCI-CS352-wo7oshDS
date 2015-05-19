@@ -22,9 +22,9 @@ public class SingleMessage {
 	 * Constructor accepts user data
 	 * 
 	 * @param toUser
-	 *            user receives friend request
+	 *            user receives message
 	 * @param fromUser
-	 *            user sent friend request
+	 *            user sent message
 	 * @param content
 	 *            content of message
 	 */
@@ -54,7 +54,7 @@ public class SingleMessage {
 	 * 
 	 * @param json
 	 *            String in json format contains user data
-	 * @return Constructed Request form
+	 * @return Constructed message
 	 */
 	public static SingleMessage getSingleMes(String json) {
 
@@ -73,12 +73,12 @@ public class SingleMessage {
 	
 	/**
 	 * 
-	 * This static method will get Request class using only email
+	 * This static method will get message class using only email
 	 * This method will serach for request in datastore
 	 * 
 	 * @param email
 	 *            user email
-	 * @return Constructed user entity
+	 * @return Constructed single message
 	 */
 	
 	public static SingleMessage getSingleMes(String toUser, String fromUser) {
@@ -102,9 +102,9 @@ public class SingleMessage {
 	}
 	
 	/**
-	 * This method will be used to save request in datastore
+	 * This method will be used to save message in datastore
 	 * 
-	 * @return boolean if request is saved correctly or not
+	 * @return boolean if message is saved correctly or not
 	 */
 	public Boolean saveSingleMessage() {
 		DatastoreService datastore = DatastoreServiceFactory

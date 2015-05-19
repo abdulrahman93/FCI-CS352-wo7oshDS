@@ -23,8 +23,8 @@ import com.google.appengine.api.datastore.Query;
  * </p>
  *
  * @author Wo7oshDS
- * @version 1.0
- * @since 2014-02-12
+ * @version 1.8
+ * @since 2015-02-12
  */
 public class UserEntity {
 	private long id;

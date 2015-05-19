@@ -35,8 +35,8 @@ import com.FCI.SWE.Models.UserEntity;
  * application
  * 
  * @author Wo7oshDS
- * @version 1.0
- * @since 2014-02-12
+ * @version 1.8
+ * @since 2015-02-12
  *
  */
 @Path("/")
@@ -51,7 +51,7 @@ public class Service {
 	}*/
 
 
-		/**
+   /**
 	 * Registration Rest service, this service will be called to make
 	 * registration. This function will store user data in data store
 	 * 
@@ -107,7 +107,7 @@ public class Service {
 	}
 	
 	/**
-	 * Login Rest Service, this service will be called to make freind
+	 * Friend request Service, this service will be called to make friend
 	 * request process, store request in data store.
 	 * @param toUser provided requested user
 	 * @param fromUser provided requesting user
@@ -133,8 +133,8 @@ public class Service {
 	}
 	
 	/**
-	 * Login Rest Service, this service will be called to make freind
-	 * request process, store request in data store.
+	 * Friend Acceptance Rest Service, this service will be called to make freind
+	 * request Accepted, store request in data store.
 	 * @param toUser provided requested user
 	 * @param fromUser provided requesting user
 	 * @return request in json format
@@ -155,11 +155,11 @@ public class Service {
 	}
 	
 	/**
-	 * Login Rest Service, this service will be called to make freind
-	 * request process, store request in data store.
-	 * @param toUser provided requested user
-	 * @param fromUser provided requesting user
-	 * @return request in json format
+	 * Send individual message Rest Service, this service will be called to send message,
+	 * store message in data store.
+	 * @param toUser provided sender user
+	 * @param fromUser provided reciever user
+	 * @return content in json format
 	 */
 	@POST
 	@Path("/SendIMessage")
@@ -178,11 +178,9 @@ public class Service {
 	}
 	
 	/**
-	 * Login Rest Service, this service will be called to make freind
-	 * request process, store request in data store.
-	 * @param toUser provided requested user
-	 * @param fromUser provided requesting user
-	 * @return request in json format
+	 * Sender Rest Service, this service will be called to get sender details.
+	 * @param email provided user email
+	 * @return content in json format
 	 */
 	@POST
 	@Path("/senderService")
@@ -205,11 +203,13 @@ public class Service {
 	}
 	
 	/**
-	 * Login Rest Service, this service will be called to make freind
-	 * request process, store request in data store.
-	 * @param toUser provided requested user
-	 * @param fromUser provided requesting user
-	 * @return request in json format
+	 * Post creation Rest Service, this service will be called to create post,
+	 * store post in data store.
+	 * @param owner provided created user
+	 * @param content provided post content
+	 * @param status provided user content
+	 * @param privacy provided type of privacy
+	 * @return content in json format
 	 */
 	@POST
 	@Path("/postCreated")

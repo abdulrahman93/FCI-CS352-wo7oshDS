@@ -24,11 +24,14 @@ public class Post {
 	 * Constructor accepts user data
 	 * 
 	 * @param owner
-	 *            user receives friend Postuest
+	 *            who made post
 	 * @param content
-	 *            user sent friend Postuest
+	 *            what in post
+	 *
 	 * @param status
 	 *            what feeling do you have currently
+	 * @param privacy
+	 * 			  state privacy of post
 	 */
 	public Post(String owner, String content, String status, String privacy) {
 		this.owner = owner;
@@ -61,7 +64,7 @@ public class Post {
 	 * 
 	 * @param json
 	 *            String in json format contains user data
-	 * @return Constructed Postuest form
+	 * @return Constructed Post form
 	 */
 	public static Post getPost(String json) {
 
@@ -125,14 +128,19 @@ public class Post {
 		List<Entity> list = pq.asList(FetchOptions.Builder.withDefaults());
 
 		Entity Post = new Entity("Post", list.size() + 1);
-
+		
+		if(!this.owner.isEmpty() && !this.content.isEmpty() && !this.status.isEmpty() &&
+				!this.privacy.isEmpty()){
 		Post.setProperty("owner", this.owner);
 		Post.setProperty("content", this.content);
 		Post.setProperty("status", this.status);
 		Post.setProperty("privacy", this.privacy);
 		datastore.put(Post);
-
+		
 		return true;
+		}
+
+		return false;
 
 	}
 	

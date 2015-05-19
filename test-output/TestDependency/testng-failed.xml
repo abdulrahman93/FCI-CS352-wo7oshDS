@@ -3,17 +3,6 @@
 <suite name="Failed suite [TestDependency]">
   <test name="Test1(failed)">
     <classes>
-      <class name="Test.NewTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="testPost"/>
-          <include name="testReq"/>
-          <include name="testUserEntity"/>
-          <include name="tearDown"/>
-          <include name="f2"/>
-          <include name="testSingleMessage"/>
-        </methods>
-      </class> <!-- Test.NewTest -->
       <class name="Test.TestService">
         <methods>
           <include name="setUp"/>
@@ -23,6 +12,40 @@
           <include name="testRegistration"/>
         </methods>
       </class> <!-- Test.TestService -->
+      <class name="Test.ReqTest">
+        <methods>
+          <include name="testGetReq"/>
+          <include name="testReq"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- Test.ReqTest -->
+      <class name="Test.NewTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="f2"/>
+          <include name="testSingleMessage"/>
+        </methods>
+      </class> <!-- Test.NewTest -->
+      <class name="Test.UserTest">
+        <methods>
+          <include name="testSaveUser"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="f"/>
+          <include name="testGetUserEntity"/>
+        </methods>
+      </class> <!-- Test.UserTest -->
+      <class name="Test.PostTest">
+        <methods>
+          <include name="testgetPost2"/>
+          <include name="setUp"/>
+          <include name="testSavePost"/>
+          <include name="tearDown"/>
+          <include name="testgetStat"/>
+        </methods>
+      </class> <!-- Test.PostTest -->
     </classes>
   </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [TestDependency] -->

@@ -23,8 +23,8 @@ import com.google.appengine.api.datastore.Query;
  * </p>
  *
  * @author Wo7oshDS
- * @version 1.0
- * @since 2014-03-9
+ * @version 1.8
+ * @since 2015-03-9
  */
 public class ReqForm {
 	private String toUser;
@@ -91,17 +91,18 @@ public class ReqForm {
 	 * 
 	 * @param email
 	 *            user email
-	 * @return Constructed user entity
+	 * @return Constructed request form
 	 */
 	
 	public static ReqForm getReq(String toUser, String fromUser) {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
-
+		//make connection
 		Query gaeQuery = new Query("requests");
 		PreparedQuery pq = datastore.prepare(gaeQuery);
 		for (Entity entity : pq.asIterable()) {
 			System.out.println(entity.getProperty("toUser").toString());
+			//check for specific users
 			if (entity.getProperty("toUser").toString().equals(toUser)
 					&& entity.getProperty("fromUser").toString().equals(fromUser)) {
 				ReqForm returnedReq = new ReqForm(entity.getProperty(
@@ -125,13 +126,16 @@ public class ReqForm {
 		Query gaeQuery = new Query("requests");
 		PreparedQuery pq = datastore.prepare(gaeQuery);
 		List<Entity> list = pq.asList(FetchOptions.Builder.withDefaults());
-
+		
+		addDatastore(list, datastore, this.status);
+		/*
 		Entity req = new Entity("requests", list.size() + 1);
 
 		req.setProperty("toUser", this.toUser);
 		req.setProperty("fromUser", this.fromUser);
 		req.setProperty("status", this.status);
 		datastore.put(req);
+		*/
 
 		return true;
 
@@ -162,13 +166,16 @@ public class ReqForm {
 		}
 		
 		List<Entity> list = pq.asList(FetchOptions.Builder.withDefaults());
-
+		
+		addDatastore(list, datastore, "Friends");
+		/*
 		Entity req = new Entity("requests", list.size() + 1);
 
 		req.setProperty("toUser", this.toUser);
 		req.setProperty("fromUser", this.fromUser);
 		req.setProperty("status", "Friends");
 		datastore.put(req);
+		*/
 
 		return true;
 	}
@@ -180,7 +187,7 @@ public class ReqForm {
 	 * 
 	 * @param email
 	 *            user email
-	 * @return Constructed user entity
+	 * @return Array List of strings
 	 */
 	
 	public static ArrayList<String> getFriends(UserEntity user) {
@@ -205,6 +212,15 @@ public class ReqForm {
 			return rf;
 		
 		return null;
+	}
+	
+	public void addDatastore(List<Entity> list, DatastoreService ds, String status){
+		Entity req = new Entity("requests", list.size() + 1);
+
+		req.setProperty("toUser", this.toUser);
+		req.setProperty("fromUser", this.fromUser);
+		req.setProperty("status", status);
+		ds.put(req);
 	}
 	
 }

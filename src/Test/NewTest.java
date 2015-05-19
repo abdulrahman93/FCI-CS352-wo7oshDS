@@ -28,39 +28,6 @@ public class NewTest {
 	public void tearDown() {
 		helper.tearDown();
 	}
-	
-	// ==========================================================================
-	@DataProvider(name = "testUser1")
-	public static Object[][] testUser() {
-		UserEntity user = new UserEntity("Ahmed", "ahmed@ay7aga.com", "1234");
-		UserEntity user2 = new UserEntity("Ahmed", "", "1234");
-		UserEntity user3 = new UserEntity("", "", "1234");
-		Boolean b = true;
-
-		return new Object[][] { { b, user }, { !b, user2 }, { !b, user3 } };
-	}
-
-	@Test(dataProvider = "testUser1")
-	public void testUserEntity(Boolean a, UserEntity user) {
-		Assert.assertEquals(a, user.saveUser());
-	}
-	// ==========================================================================
-	
-	@Test
-	public void testPost() {
-		Post p = new Post("Ahmed", "Ahlan", "happy", "public");
-
-		Boolean b = true;
-		Assert.assertEquals(b, p.savePost());
-	}
-
-	@Test(dependsOnMethods = "testUserEntity")
-	public void testReq() {
-		ReqForm r = new ReqForm("Ahmed", "Ali", "Pending");
-
-		Boolean b = true;
-		Assert.assertEquals(b, r.saveReq());
-	}
 
 	@Test
 	public void testSingleMessage() {

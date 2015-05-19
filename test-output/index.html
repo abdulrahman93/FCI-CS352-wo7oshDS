@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-TestDependency">
-              <span class="suite-name border-passed">TestDependency</span>
+              <span class="suite-name border-failed">TestDependency</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -58,7 +58,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="group-TestDependency">
-                    <span>1 group</span>
+                    <span>2 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,50 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">11 methods,   11 passed</span>
+                    <span class="method-stats">20 methods, 2 failed,  3 skipped,  15 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-TestDependency" class="hide-methods failed suite-TestDependency"> (hide)</a> <!-- hide-methods failed suite-TestDependency -->
+                      <a href="#" panel-name="suite-TestDependency" class="show-methods failed suite-TestDependency"> (show)</a> <!-- show-methods failed suite-TestDependency -->
+                    </span>
+                    <div class="method-list-content failed suite-TestDependency">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.ReqTest" hash-for-method="testGetReq">testGetReq</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.PostTest" hash-for-method="testgetPost2">testgetPost2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-TestDependency -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-TestDependency" class="hide-methods skipped suite-TestDependency"> (hide)</a> <!-- hide-methods skipped suite-TestDependency -->
+                      <a href="#" panel-name="suite-TestDependency" class="show-methods skipped suite-TestDependency"> (show)</a> <!-- show-methods skipped suite-TestDependency -->
+                    </span>
+                    <div class="method-list-content skipped suite-TestDependency">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.TestService" hash-for-method="testLogin">testLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.TestService" hash-for-method="testPost">testPost</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.TestService" hash-for-method="testRegistration">testRegistration</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-TestDependency -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,37 +144,67 @@
                     <div class="method-list-content passed suite-TestDependency">
                       <span>
                         <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.UserTest" hash-for-method="f">f</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.NewTest" hash-for-method="f2">f2</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.TestService" hash-for-method="testLogin({&quot;Status&quot;:&quot;Failed&quot;}, {&quot;Status&quot;:&quot;Failed&quot;})">testLogin({"Status":"Failed"}, {"Status":"Failed"})</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.UserTest" hash-for-method="testGetUserEntity(, )">testGetUserEntity(, )</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.NewTest" hash-for-method="testPost">testPost</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.UserTest" hash-for-method="testGetUserEntity(Ahmed, Ahmed)">testGetUserEntity(Ahmed, Ahmed)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.TestService" hash-for-method="testPost">testPost</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.UserTest" hash-for-method="testGetUserEntity(Ali, Ali)">testGetUserEntity(Ali, Ali)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.TestService" hash-for-method="testRegistration({&quot;Status&quot;:&quot;OK&quot;}, {&quot;Status&quot;:&quot;OK&quot;})">testRegistration({"Status":"OK"}, {"Status":"OK"})</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.ReqTest" hash-for-method="testReq(true, com.FCI.SWE.Models.ReqForm@174f19bc)">testReq(true, com.FCI.SWE.Models.ReqForm@174f19bc)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.TestService" hash-for-method="testRegistration(null, null)">testRegistration(null, null)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.ReqTest" hash-for-method="testReq(true, com.FCI.SWE.Models.ReqForm@215e8db2)">testReq(true, com.FCI.SWE.Models.ReqForm@215e8db2)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.NewTest" hash-for-method="testReq">testReq</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.ReqTest" hash-for-method="testReq(true, com.FCI.SWE.Models.ReqForm@5527e87d)">testReq(true, com.FCI.SWE.Models.ReqForm@5527e87d)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.PostTest" hash-for-method="testSavePost(true, com.FCI.SWE.Models.Post@17d260f6)">testSavePost(true, com.FCI.SWE.Models.Post@17d260f6)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.PostTest" hash-for-method="testSavePost(false, com.FCI.SWE.Models.Post@38fb9e44)">testSavePost(false, com.FCI.SWE.Models.Post@38fb9e44)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.UserTest" hash-for-method="testSaveUser(false, com.FCI.SWE.Models.UserEntity@24420c5)">testSaveUser(false, com.FCI.SWE.Models.UserEntity@24420c5)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.UserTest" hash-for-method="testSaveUser(false, com.FCI.SWE.Models.UserEntity@52532d15)">testSaveUser(false, com.FCI.SWE.Models.UserEntity@52532d15)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.UserTest" hash-for-method="testSaveUser(true, com.FCI.SWE.Models.UserEntity@342d1ead)">testSaveUser(true, com.FCI.SWE.Models.UserEntity@342d1ead)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -141,17 +214,7 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.NewTest" hash-for-method="testUserEntity(true, com.FCI.SWE.Models.UserEntity@908d17e)">testUserEntity(true, com.FCI.SWE.Models.UserEntity@908d17e)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.NewTest" hash-for-method="testUserEntity(false, com.FCI.SWE.Models.UserEntity@5e77b0bd)">testUserEntity(false, com.FCI.SWE.Models.UserEntity@5e77b0bd)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.NewTest" hash-for-method="testUserEntity(false, com.FCI.SWE.Models.UserEntity@71c7625c)">testUserEntity(false, com.FCI.SWE.Models.UserEntity@71c7625c)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestDependency" title="Test.PostTest" hash-for-method="testgetStat">testgetStat</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-TestDependency -->
@@ -166,6 +229,119 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-TestDependency" class="panel TestDependency">
+          <div class="suite-TestDependency-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Test.ReqTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetReq">
+                  </a> <!-- testGetReq -->
+                  <span class="method-name">testGetReq</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at Test.ReqTest.testGetReq(ReqTest.java:34)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TestDependency-class-failed -->
+          <div class="suite-TestDependency-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Test.PostTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testgetPost2">
+                  </a> <!-- testgetPost2 -->
+                  <span class="method-name">testgetPost2</span>
+                  <div class="stack-trace">java.lang.NullPointerException: No API environment is registered for this thread.
+	at com.google.appengine.api.datastore.DatastoreApiHelper.getCurrentAppId(DatastoreApiHelper.java:117)
+	at com.google.appengine.api.datastore.DatastoreApiHelper.getCurrentAppIdNamespace(DatastoreApiHelper.java:133)
+	at com.google.appengine.api.datastore.Query.&lt;init&gt;(Query.java:211)
+	at com.google.appengine.api.datastore.Query.&lt;init&gt;(Query.java:142)
+	at com.FCI.SWE.Models.Post.savePost(Post.java:123)
+	at Test.PostTest.testgetPost2(PostTest.java:57)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TestDependency-class-failed -->
+          <div class="suite-TestDependency-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">Test.TestService</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLogin">
+                  </a> <!-- testLogin -->
+                  <span class="method-name">testLogin</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestService.testLogin(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testPost">
+                  </a> <!-- testPost -->
+                  <span class="method-name">testPost</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestService.testPost()[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRegistration">
+                  </a> <!-- testRegistration -->
+                  <span class="method-name">testRegistration</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestService.testRegistration(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TestDependency-class-skipped -->
+          <div class="suite-TestDependency-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Test.ReqTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testReq(true, com.FCI.SWE.Models.ReqForm@174f19bc)">
+                  </a> <!-- testReq(true, com.FCI.SWE.Models.ReqForm@174f19bc) -->
+                  <span class="method-name">testReq</span>
+                  <span class="parameters">(true, com.FCI.SWE.Models.ReqForm@174f19bc)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testReq(true, com.FCI.SWE.Models.ReqForm@215e8db2)">
+                  </a> <!-- testReq(true, com.FCI.SWE.Models.ReqForm@215e8db2) -->
+                  <span class="method-name">testReq</span>
+                  <span class="parameters">(true, com.FCI.SWE.Models.ReqForm@215e8db2)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testReq(true, com.FCI.SWE.Models.ReqForm@5527e87d)">
+                  </a> <!-- testReq(true, com.FCI.SWE.Models.ReqForm@5527e87d) -->
+                  <span class="method-name">testReq</span>
+                  <span class="parameters">(true, com.FCI.SWE.Models.ReqForm@5527e87d)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TestDependency-class-passed -->
           <div class="suite-TestDependency-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -181,47 +357,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testPost">
-                  </a> <!-- testPost -->
-                  <span class="method-name">testPost</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testReq">
-                  </a> <!-- testReq -->
-                  <span class="method-name">testReq</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="testSingleMessage">
                   </a> <!-- testSingleMessage -->
                   <span class="method-name">testSingleMessage</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testUserEntity(true, com.FCI.SWE.Models.UserEntity@908d17e)">
-                  </a> <!-- testUserEntity(true, com.FCI.SWE.Models.UserEntity@908d17e) -->
-                  <span class="method-name">testUserEntity</span>
-                  <span class="parameters">(true, com.FCI.SWE.Models.UserEntity@908d17e)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testUserEntity(false, com.FCI.SWE.Models.UserEntity@5e77b0bd)">
-                  </a> <!-- testUserEntity(false, com.FCI.SWE.Models.UserEntity@5e77b0bd) -->
-                  <span class="method-name">testUserEntity</span>
-                  <span class="parameters">(false, com.FCI.SWE.Models.UserEntity@5e77b0bd)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testUserEntity(false, com.FCI.SWE.Models.UserEntity@71c7625c)">
-                  </a> <!-- testUserEntity(false, com.FCI.SWE.Models.UserEntity@71c7625c) -->
-                  <span class="method-name">testUserEntity</span>
-                  <span class="parameters">(false, com.FCI.SWE.Models.UserEntity@71c7625c)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -229,38 +367,93 @@
           <div class="suite-TestDependency-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">Test.TestService</span>
+              <span class="class-name">Test.UserTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testLogin({&quot;Status&quot;:&quot;Failed&quot;}, {&quot;Status&quot;:&quot;Failed&quot;})">
-                  </a> <!-- testLogin({"Status":"Failed"}, {"Status":"Failed"}) -->
-                  <span class="method-name">testLogin</span>
-                  <span class="parameters">({"Status":"Failed"}, {"Status":"Failed"})</span>
+                  <a name="f">
+                  </a> <!-- f -->
+                  <span class="method-name">f</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testPost">
-                  </a> <!-- testPost -->
-                  <span class="method-name">testPost</span>
+                  <a name="testGetUserEntity(, )">
+                  </a> <!-- testGetUserEntity(, ) -->
+                  <span class="method-name">testGetUserEntity</span>
+                  <span class="parameters">(, )</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testRegistration({&quot;Status&quot;:&quot;OK&quot;}, {&quot;Status&quot;:&quot;OK&quot;})">
-                  </a> <!-- testRegistration({"Status":"OK"}, {"Status":"OK"}) -->
-                  <span class="method-name">testRegistration</span>
-                  <span class="parameters">({"Status":"OK"}, {"Status":"OK"})</span>
+                  <a name="testGetUserEntity(Ahmed, Ahmed)">
+                  </a> <!-- testGetUserEntity(Ahmed, Ahmed) -->
+                  <span class="method-name">testGetUserEntity</span>
+                  <span class="parameters">(Ahmed, Ahmed)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testRegistration(null, null)">
-                  </a> <!-- testRegistration(null, null) -->
-                  <span class="method-name">testRegistration</span>
-                  <span class="parameters">(null, null)</span>
+                  <a name="testGetUserEntity(Ali, Ali)">
+                  </a> <!-- testGetUserEntity(Ali, Ali) -->
+                  <span class="method-name">testGetUserEntity</span>
+                  <span class="parameters">(Ali, Ali)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSaveUser(false, com.FCI.SWE.Models.UserEntity@24420c5)">
+                  </a> <!-- testSaveUser(false, com.FCI.SWE.Models.UserEntity@24420c5) -->
+                  <span class="method-name">testSaveUser</span>
+                  <span class="parameters">(false, com.FCI.SWE.Models.UserEntity@24420c5)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSaveUser(false, com.FCI.SWE.Models.UserEntity@52532d15)">
+                  </a> <!-- testSaveUser(false, com.FCI.SWE.Models.UserEntity@52532d15) -->
+                  <span class="method-name">testSaveUser</span>
+                  <span class="parameters">(false, com.FCI.SWE.Models.UserEntity@52532d15)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSaveUser(true, com.FCI.SWE.Models.UserEntity@342d1ead)">
+                  </a> <!-- testSaveUser(true, com.FCI.SWE.Models.UserEntity@342d1ead) -->
+                  <span class="method-name">testSaveUser</span>
+                  <span class="parameters">(true, com.FCI.SWE.Models.UserEntity@342d1ead)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TestDependency-class-passed -->
+          <div class="suite-TestDependency-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Test.PostTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSavePost(true, com.FCI.SWE.Models.Post@17d260f6)">
+                  </a> <!-- testSavePost(true, com.FCI.SWE.Models.Post@17d260f6) -->
+                  <span class="method-name">testSavePost</span>
+                  <span class="parameters">(true, com.FCI.SWE.Models.Post@17d260f6)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSavePost(false, com.FCI.SWE.Models.Post@38fb9e44)">
+                  </a> <!-- testSavePost(false, com.FCI.SWE.Models.Post@38fb9e44) -->
+                  <span class="method-name">testSavePost</span>
+                  <span class="parameters">(false, com.FCI.SWE.Models.Post@38fb9e44)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testgetStat">
+                  </a> <!-- testgetStat -->
+                  <span class="method-name">testgetStat</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -278,6 +471,9 @@
   &lt;test name=&quot;Test1&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;Test.NewTest&quot;/&gt;
+      &lt;class name=&quot;Test.PostTest&quot;/&gt;
+      &lt;class name=&quot;Test.UserTest&quot;/&gt;
+      &lt;class name=&quot;Test.ReqTest&quot;/&gt;
       &lt;class name=&quot;Test.TestService&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test1 --&gt;
@@ -292,7 +488,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test1 (2 classes)</span>
+                <span class="test-name">Test1 (5 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -306,11 +502,19 @@
               <span class="test-group-name">Entity</span>
               <br/>
               <div class="method-in-group">
+                <span class="method-in-group-name">f</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
                 <span class="method-in-group-name">f2</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">testPost</span>
+                <span class="method-in-group-name">testGetReq</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserEntity</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
@@ -318,11 +522,39 @@
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
+                <span class="method-in-group-name">testSavePost</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testSaveUser</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
                 <span class="method-in-group-name">testSingleMessage</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">testUserEntity</span>
+                <span class="method-in-group-name">testgetPost2</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testgetStat</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">testUser</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">f</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserEntity</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testSaveUser</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -342,56 +574,92 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(11);
+data.addRows(20);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'f2')
 data.setCell(0, 2, 'Test.NewTest')
-data.setCell(0, 3, 529);
+data.setCell(0, 3, 559);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testUserEntity')
-data.setCell(1, 2, 'Test.NewTest')
-data.setCell(1, 3, 6);
+data.setCell(1, 1, 'testGetReq')
+data.setCell(1, 2, 'Test.ReqTest')
+data.setCell(1, 3, 9);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testReq')
-data.setCell(2, 2, 'Test.NewTest')
-data.setCell(2, 3, 6);
+data.setCell(2, 1, 'testSavePost')
+data.setCell(2, 2, 'Test.PostTest')
+data.setCell(2, 3, 7);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testSingleMessage')
-data.setCell(3, 2, 'Test.NewTest')
-data.setCell(3, 3, 5);
+data.setCell(3, 1, 'testSaveUser')
+data.setCell(3, 2, 'Test.UserTest')
+data.setCell(3, 3, 7);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'testPost')
+data.setCell(4, 1, 'testSingleMessage')
 data.setCell(4, 2, 'Test.NewTest')
 data.setCell(4, 3, 5);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'testUserEntity')
-data.setCell(5, 2, 'Test.NewTest')
-data.setCell(5, 3, 5);
+data.setCell(5, 1, 'testReq')
+data.setCell(5, 2, 'Test.ReqTest')
+data.setCell(5, 3, 4);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'testUserEntity')
-data.setCell(6, 2, 'Test.NewTest')
+data.setCell(6, 1, 'testReq')
+data.setCell(6, 2, 'Test.ReqTest')
 data.setCell(6, 3, 4);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'testPost')
-data.setCell(7, 2, 'Test.TestService')
-data.setCell(7, 3, 4);
+data.setCell(7, 1, 'testSaveUser')
+data.setCell(7, 2, 'Test.UserTest')
+data.setCell(7, 3, 3);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'testRegistration')
-data.setCell(8, 2, 'Test.TestService')
-data.setCell(8, 3, 1);
+data.setCell(8, 1, 'testReq')
+data.setCell(8, 2, 'Test.ReqTest')
+data.setCell(8, 3, 3);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'testLogin')
-data.setCell(9, 2, 'Test.TestService')
-data.setCell(9, 3, 1);
+data.setCell(9, 1, 'testSaveUser')
+data.setCell(9, 2, 'Test.UserTest')
+data.setCell(9, 3, 2);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'testRegistration')
-data.setCell(10, 2, 'Test.TestService')
-data.setCell(10, 3, 1);
+data.setCell(10, 1, 'testSavePost')
+data.setCell(10, 2, 'Test.PostTest')
+data.setCell(10, 3, 2);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testGetUserEntity')
+data.setCell(11, 2, 'Test.UserTest')
+data.setCell(11, 3, 1);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testGetUserEntity')
+data.setCell(12, 2, 'Test.UserTest')
+data.setCell(12, 3, 1);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'f')
+data.setCell(13, 2, 'Test.UserTest')
+data.setCell(13, 3, 1);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testGetUserEntity')
+data.setCell(14, 2, 'Test.UserTest')
+data.setCell(14, 3, 1);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testgetPost2')
+data.setCell(15, 2, 'Test.PostTest')
+data.setCell(15, 3, 1);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testgetStat')
+data.setCell(16, 2, 'Test.PostTest')
+data.setCell(16, 3, 0);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testRegistration')
+data.setCell(17, 2, 'Test.TestService')
+data.setCell(17, 3, 0);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testPost')
+data.setCell(18, 2, 'Test.TestService')
+data.setCell(18, 3, 0);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testLogin')
+data.setCell(19, 2, 'Test.TestService')
+data.setCell(19, 3, 0);
 window.suiteTableData['TestDependency']= { tableData: data, tableDiv: 'times-div-TestDependency'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 567 ms</span>
+              <span class="suite-total-time">Total running time: 610 ms</span>
               <div id="times-div-TestDependency">
               </div> <!-- times-div-TestDependency -->
             </div> <!-- times-div -->
@@ -424,31 +692,11 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">f2</span>
-                <span class="method-start">46 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testPost</span>
-                <span class="method-start">577 ms</span>
+                <span class="method-start">53 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testSingleMessage</span>
-                <span class="method-start">584 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testUserEntity(true, com.FCI.SWE.Models.UserEntity@908d17e)</span>
-                <span class="method-start">593 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testUserEntity(false, com.FCI.SWE.Models.UserEntity@5e77b0bd)</span>
-                <span class="method-start">600 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testUserEntity(false, com.FCI.SWE.Models.UserEntity@71c7625c)</span>
-                <span class="method-start">605 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testReq</span>
-                <span class="method-start">613 ms</span>
+                <span class="method-start">614 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
@@ -456,30 +704,116 @@ return data;
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">Test.TestService</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Test.PostTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">621 ms</span>
+                <span class="method-start">620 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testLogin({"Status":"Failed"}, {"Status":"Failed"})</span>
-                <span class="method-start">634 ms</span>
+                <span class="method-name">testSavePost(true, com.FCI.SWE.Models.Post@17d260f6)</span>
+                <span class="method-start">624 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testPost</span>
+                <span class="method-name">testSavePost(false, com.FCI.SWE.Models.Post@38fb9e44)</span>
+                <span class="method-start">632 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testgetStat</span>
+                <span class="method-start">636 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Test.UserTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
                 <span class="method-start">637 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">f</span>
+                <span class="method-start">638 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testRegistration({"Status":"OK"}, {"Status":"OK"})</span>
-                <span class="method-start">649 ms</span>
+                <span class="method-name">testGetUserEntity(Ahmed, Ahmed)</span>
+                <span class="method-start">641 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testRegistration(null, null)</span>
-                <span class="method-start">651 ms</span>
+                <span class="method-name">testGetUserEntity(Ali, Ali)</span>
+                <span class="method-start">643 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testGetUserEntity(, )</span>
+                <span class="method-start">644 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testSaveUser(true, com.FCI.SWE.Models.UserEntity@342d1ead)</span>
+                <span class="method-start">647 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testSaveUser(false, com.FCI.SWE.Models.UserEntity@24420c5)</span>
+                <span class="method-start">655 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testSaveUser(false, com.FCI.SWE.Models.UserEntity@52532d15)</span>
+                <span class="method-start">658 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">652 ms</span>
+                <span class="method-start">662 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Test.PostTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testgetPost2</span>
+                <span class="method-start">665 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">tearDown</span>
+                <span class="method-start">669 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Test.ReqTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">672 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetReq</span>
+                <span class="method-start">674 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testReq(true, com.FCI.SWE.Models.ReqForm@215e8db2)</span>
+                <span class="method-start">685 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testReq(true, com.FCI.SWE.Models.ReqForm@5527e87d)</span>
+                <span class="method-start">690 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testReq(true, com.FCI.SWE.Models.ReqForm@174f19bc)</span>
+                <span class="method-start">694 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">698 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Test.TestService</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">699 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">714 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

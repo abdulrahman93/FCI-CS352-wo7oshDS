@@ -5,6 +5,12 @@
 		<classes>
 			<class name="Test.NewTest">
 			</class>
+			<class name="Test.PostTest">
+			</class>
+			<class name="Test.UserTest">
+			</class>
+			<class name="Test.ReqTest">
+			</class>
 			<class name="Test.TestService">
 			</class>
 		</classes>

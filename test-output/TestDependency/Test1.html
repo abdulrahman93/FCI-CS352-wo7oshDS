@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test1</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>15/2/3</td>
 </tr><tr>
-<td>Started on:</td><td>Mon May 11 00:21:30 EET 2015</td>
+<td>Started on:</td><td>Mon May 11 19:29:57 EET 2015</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (662 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (725 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,144 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Test.PostTest.tearDown()'><b>tearDown</b><br>Test class: Test.PostTest</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.google.appengine.tools.development.testing.LocalServiceTestHelper.getLocalService(LocalServiceTestHelper.java:589)
+	at com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig.getLocalDatastoreService(LocalDatastoreServiceTestConfig.java:294)
+	at com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig.tearDown(LocalDatastoreServiceTestConfig.java:288)
+	at com.google.appengine.tools.development.testing.LocalServiceTestHelper.tearDownService(LocalServiceTestHelper.java:548)
+	at com.google.appengine.tools.development.testing.LocalServiceTestHelper.tearDown(LocalServiceTestHelper.java:520)
+	at Test.PostTest.tearDown(PostTest.java:27)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace316044832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace316044832'><pre>java.lang.NullPointerException
+	at com.google.appengine.tools.development.testing.LocalServiceTestHelper.getLocalService(LocalServiceTestHelper.java:589)
+	at com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig.getLocalDatastoreService(LocalDatastoreServiceTestConfig.java:294)
+	at com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig.tearDown(LocalDatastoreServiceTestConfig.java:288)
+	at com.google.appengine.tools.development.testing.LocalServiceTestHelper.tearDownService(LocalServiceTestHelper.java:548)
+	at com.google.appengine.tools.development.testing.LocalServiceTestHelper.tearDown(LocalServiceTestHelper.java:520)
+	at Test.PostTest.tearDown(PostTest.java:27)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:552)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:140)
+	at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:220)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
+<td>0</td>
+<td>Test.PostTest@12b7530</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Test.ReqTest.testGetReq()'><b>testGetReq</b><br>Test class: Test.ReqTest</td>
+<td><div><pre>java.lang.NullPointerException
+	at Test.ReqTest.testGetReq(ReqTest.java:34)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace623821920", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace623821920'><pre>java.lang.NullPointerException
+	at Test.ReqTest.testGetReq(ReqTest.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
+<td>0</td>
+<td>Test.ReqTest@8d6a3d1</td></tr>
+<tr>
+<td title='Test.PostTest.testgetPost2()'><b>testgetPost2</b><br>Test class: Test.PostTest</td>
+<td><div><pre>java.lang.NullPointerException: No API environment is registered for this thread.
+	at com.google.appengine.api.datastore.DatastoreApiHelper.getCurrentAppId(DatastoreApiHelper.java:117)
+	at com.google.appengine.api.datastore.DatastoreApiHelper.getCurrentAppIdNamespace(DatastoreApiHelper.java:133)
+	at com.google.appengine.api.datastore.Query.&lt;init&gt;(Query.java:211)
+	at com.google.appengine.api.datastore.Query.&lt;init&gt;(Query.java:142)
+	at com.FCI.SWE.Models.Post.savePost(Post.java:123)
+	at Test.PostTest.testgetPost2(PostTest.java:57)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1344575859", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1344575859'><pre>java.lang.NullPointerException: No API environment is registered for this thread.
+	at com.google.appengine.api.datastore.DatastoreApiHelper.getCurrentAppId(DatastoreApiHelper.java:117)
+	at com.google.appengine.api.datastore.DatastoreApiHelper.getCurrentAppIdNamespace(DatastoreApiHelper.java:133)
+	at com.google.appengine.api.datastore.Query.&lt;init&gt;(Query.java:211)
+	at com.google.appengine.api.datastore.Query.&lt;init&gt;(Query.java:142)
+	at com.FCI.SWE.Models.Post.savePost(Post.java:123)
+	at Test.PostTest.testgetPost2(PostTest.java:57)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
+<td>0</td>
+<td>Test.PostTest@12b7530</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,60 +213,163 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='Test.UserTest.f()'><b>f</b><br>Test class: Test.UserTest</td>
+<td></td>
+<td>0</td>
+<td>Test.UserTest@750d3126</td></tr>
+<tr>
 <td title='Test.NewTest.f2()'><b>f2</b><br>Test class: Test.NewTest</td>
 <td></td>
 <td>0</td>
-<td>Test.NewTest@1ea49c14</td></tr>
+<td>Test.NewTest@439cf2df</td></tr>
 <tr>
-<td title='Test.TestService.testLogin()'><b>testLogin</b><br>Test class: Test.TestService<br>Parameters: {"Status":"Failed"}, {"Status":"Failed"}</td>
+<td title='Test.UserTest.testGetUserEntity()'><b>testGetUserEntity</b><br>Test class: Test.UserTest<br>Parameters: Ahmed, Ahmed</td>
 <td></td>
 <td>0</td>
-<td>Test.TestService@24c6af24</td></tr>
+<td>Test.UserTest@750d3126</td></tr>
 <tr>
-<td title='Test.NewTest.testPost()'><b>testPost</b><br>Test class: Test.NewTest</td>
+<td title='Test.UserTest.testGetUserEntity()'><b>testGetUserEntity</b><br>Test class: Test.UserTest<br>Parameters: Ali, Ali</td>
 <td></td>
 <td>0</td>
-<td>Test.NewTest@1ea49c14</td></tr>
+<td>Test.UserTest@750d3126</td></tr>
 <tr>
-<td title='Test.TestService.testPost()'><b>testPost</b><br>Test class: Test.TestService</td>
+<td title='Test.UserTest.testGetUserEntity()'><b>testGetUserEntity</b><br>Test class: Test.UserTest<br>Parameters: , </td>
 <td></td>
 <td>0</td>
-<td>Test.TestService@24c6af24</td></tr>
+<td>Test.UserTest@750d3126</td></tr>
 <tr>
-<td title='Test.TestService.testRegistration()'><b>testRegistration</b><br>Test class: Test.TestService<br>Parameters: {"Status":"OK"}, {"Status":"OK"}</td>
+<td title='Test.ReqTest.testReq()'><b>testReq</b><br>Test class: Test.ReqTest<br>Parameters: true, com.FCI.SWE.Models.ReqForm@215e8db2</td>
 <td></td>
 <td>0</td>
-<td>Test.TestService@24c6af24</td></tr>
+<td>Test.ReqTest@8d6a3d1</td></tr>
 <tr>
-<td title='Test.TestService.testRegistration()'><b>testRegistration</b><br>Test class: Test.TestService<br>Parameters: null, null</td>
+<td title='Test.ReqTest.testReq()'><b>testReq</b><br>Test class: Test.ReqTest<br>Parameters: true, com.FCI.SWE.Models.ReqForm@5527e87d</td>
 <td></td>
 <td>0</td>
-<td>Test.TestService@24c6af24</td></tr>
+<td>Test.ReqTest@8d6a3d1</td></tr>
 <tr>
-<td title='Test.NewTest.testReq()'><b>testReq</b><br>Test class: Test.NewTest</td>
+<td title='Test.ReqTest.testReq()'><b>testReq</b><br>Test class: Test.ReqTest<br>Parameters: true, com.FCI.SWE.Models.ReqForm@174f19bc</td>
 <td></td>
 <td>0</td>
-<td>Test.NewTest@1ea49c14</td></tr>
+<td>Test.ReqTest@8d6a3d1</td></tr>
+<tr>
+<td title='Test.PostTest.testSavePost()'><b>testSavePost</b><br>Test class: Test.PostTest<br>Parameters: true, com.FCI.SWE.Models.Post@17d260f6</td>
+<td></td>
+<td>0</td>
+<td>Test.PostTest@12b7530</td></tr>
+<tr>
+<td title='Test.PostTest.testSavePost()'><b>testSavePost</b><br>Test class: Test.PostTest<br>Parameters: false, com.FCI.SWE.Models.Post@38fb9e44</td>
+<td></td>
+<td>0</td>
+<td>Test.PostTest@12b7530</td></tr>
+<tr>
+<td title='Test.UserTest.testSaveUser()'><b>testSaveUser</b><br>Test class: Test.UserTest<br>Parameters: true, com.FCI.SWE.Models.UserEntity@342d1ead</td>
+<td></td>
+<td>0</td>
+<td>Test.UserTest@750d3126</td></tr>
+<tr>
+<td title='Test.UserTest.testSaveUser()'><b>testSaveUser</b><br>Test class: Test.UserTest<br>Parameters: false, com.FCI.SWE.Models.UserEntity@24420c5</td>
+<td></td>
+<td>0</td>
+<td>Test.UserTest@750d3126</td></tr>
+<tr>
+<td title='Test.UserTest.testSaveUser()'><b>testSaveUser</b><br>Test class: Test.UserTest<br>Parameters: false, com.FCI.SWE.Models.UserEntity@52532d15</td>
+<td></td>
+<td>0</td>
+<td>Test.UserTest@750d3126</td></tr>
 <tr>
 <td title='Test.NewTest.testSingleMessage()'><b>testSingleMessage</b><br>Test class: Test.NewTest</td>
 <td></td>
 <td>0</td>
-<td>Test.NewTest@1ea49c14</td></tr>
+<td>Test.NewTest@439cf2df</td></tr>
 <tr>
-<td title='Test.NewTest.testUserEntity()'><b>testUserEntity</b><br>Test class: Test.NewTest<br>Parameters: true, com.FCI.SWE.Models.UserEntity@908d17e</td>
+<td title='Test.PostTest.testgetStat()'><b>testgetStat</b><br>Test class: Test.PostTest</td>
 <td></td>
 <td>0</td>
-<td>Test.NewTest@1ea49c14</td></tr>
+<td>Test.PostTest@12b7530</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='Test.NewTest.testUserEntity()'><b>testUserEntity</b><br>Test class: Test.NewTest<br>Parameters: false, com.FCI.SWE.Models.UserEntity@5e77b0bd</td>
-<td></td>
+<td title='Test.TestService.testLogin()'><b>testLogin</b><br>Test class: Test.TestService</td>
+<td><div><pre>java.lang.Throwable: Method TestService.testLogin(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace456790894", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace456790894'><pre>java.lang.Throwable: Method TestService.testLogin(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1099)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
 <td>0</td>
-<td>Test.NewTest@1ea49c14</td></tr>
+<td>null</td></tr>
 <tr>
-<td title='Test.NewTest.testUserEntity()'><b>testUserEntity</b><br>Test class: Test.NewTest<br>Parameters: false, com.FCI.SWE.Models.UserEntity@71c7625c</td>
-<td></td>
+<td title='Test.TestService.testPost()'><b>testPost</b><br>Test class: Test.TestService</td>
+<td><div><pre>java.lang.Throwable: Method TestService.testPost()[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace641028192", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace641028192'><pre>java.lang.Throwable: Method TestService.testPost()[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1099)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
 <td>0</td>
-<td>Test.NewTest@1ea49c14</td></tr>
+<td>null</td></tr>
+<tr>
+<td title='Test.TestService.testRegistration()'><b>testRegistration</b><br>Test class: Test.TestService</td>
+<td><div><pre>java.lang.Throwable: Method TestService.testRegistration(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace591214973", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace591214973'><pre>java.lang.Throwable: Method TestService.testRegistration(java.lang.String, java.lang.String)[pri:0, instance:Test.TestService@6e7d8dfb] depends on not successfully finished methods in group &quot;Entity&quot;
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1099)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
 </table><p>
 </body>
 </html>
