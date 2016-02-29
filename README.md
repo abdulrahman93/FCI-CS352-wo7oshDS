@@ -1,3 +1,3 @@
 # FCI-CS352-wo7oshDS
-SWE-II Project
-A project
+A project to simulate social network website. Using REST architecture and deploying to cloud (Google App Engine). Made for Software Engineering-II course.
+
